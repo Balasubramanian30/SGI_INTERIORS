@@ -291,59 +291,66 @@ if ($('.testimonial-carousel').length) {
 }
 
 
-	//Clients Carousel
-	if ($('.clients-carousel').length) {
-		$('.clients-carousel').slick({
-	        slidesToShow: 5,
-	        centerMode: false,
-  			centerPadding: '24px',
-	        slidesToScroll: 2,
-	        autoplay: true,
-	        infinite: true,
-	        dots: false,
-	        arrows: false,
-	        touchMove: true,
-	        touchThreshold: 5,
-	        autoplaySpeed: 5000,
-	        pauseOnHover: true,
-	        speed: 1000,
-	         prevArrow:"<div class='prev-btn'><i class='fa fa-angle-left'></span></div>",
-      		nextArrow:"<div class='next-btn'><i class='fa fa-angle-right'></span></div>",
-	        //cssEase:'linear',
-	        responsive: [
-				    {
-				      breakpoint: 1200,
-				      settings: {
-				        slidesToShow: 5
-				      }
-				    },
-				    {
-				      breakpoint: 992,
-				      settings: {
-				        slidesToShow: 3
-				      }
-				    },
-				    {
-				      breakpoint: 768,
-				      settings: {
-				        slidesToShow: 2
-				      }
-				    },
-				    {
-				      breakpoint: 600,
-				      settings: {
-				        slidesToShow: 1
-				      }
-				    },
-				    {
-				      breakpoint: 480,
-				      settings: {
-				        slidesToShow: 1
-				      }
-				    }
-    			]
-	    });
-	}
+// Clients Carousel
+if ($('.clients-carousel').length) {
+    $('.clients-carousel').each(function() {
+        var $carousel = $(this);
+        var autoplaySpeed = 5000; // Default speed
+        if ($(window).width() < 768) {
+            autoplaySpeed = 4000; // Adjusted speed for mobile view
+        }
+        $carousel.slick({
+            slidesToShow: 5,
+            centerMode: false,
+            centerPadding: '24px',
+            slidesToScroll: 2,
+            autoplay: true,
+            infinite: true,
+            dots: false,
+            arrows: false,
+            touchMove: true,
+            touchThreshold: 5,
+            autoplaySpeed: autoplaySpeed,
+            pauseOnHover: true,
+            speed: 1000,
+            prevArrow:"<div class='prev-btn'><i class='fa fa-angle-left'></span></div>",
+            nextArrow:"<div class='next-btn'><i class='fa fa-angle-right'></span></div>",
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+}
+
 
 	//Insta Feed Carousel
 	if ($('.insta-carousel').length) {
